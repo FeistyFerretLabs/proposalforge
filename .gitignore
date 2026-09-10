@@ -44,3 +44,6 @@ next-env.d.ts
 *.log
 _verify/
 .env.example.bak
+
+# supabase CLI local state
+supabase/.temp/
