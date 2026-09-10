@@ -18,9 +18,16 @@ on every push to `main` and pushes to
 - `SUPABASE_SERVICE_ROLE_KEY`
 - `ANTHROPIC_API_KEY`
 
-**Deployed as:** Arcane project `proposalforge`, container on
-`public-proxy`, port 3000, fronted by NPM at `proposal.feistyferret.com`
-(Let's Encrypt cert via NPM's `certificate_id: "new"`).
+**Deployed as:** Arcane project `proposalforge` (id `1c1a10cb-bf64-4ef3-8c36-842428484137`),
+container `proposalforge-proposalforge-1` on `public-proxy`, port 3000,
+fronted by NPM (proxy host id 33) at `proposal.feistyferret.com` with a
+live Let's Encrypt cert. Confirmed live 2026-09-10 (HTTP 200).
+
+**Known gap:** deployed without `ANTHROPIC_API_KEY` (Maestro's call, to
+not block the deploy) — "Generate with AI" will fail until a key is set
+in the Arcane project's env and the project is redeployed
+(`POST /api/environments/0/projects/1c1a10cb-bf64-4ef3-8c36-842428484137/up`
+after updating `envContent`).
 
 **Database:** Supabase project `nvywxazwnrjpuofzykgs` — see
 `connections/proposalforge-supabase.md`. Schema applied via
